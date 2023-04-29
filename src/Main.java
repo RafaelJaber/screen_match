@@ -4,9 +4,12 @@ public class Main {
         movie.name = "O Protetor";
         movie.releaseDate = 2014;
         movie.durationInMinutes = 140;
-        movie.assessment = 8.9;
-        movie.totalRatings = 5;
 
-        System.out.println(movie.name);
+        movie.displayTechnicalSheet();
+        movie.evaluate(5.8);
+        movie.evaluate(4.8);
+        movie.evaluate(3.2);
+
+        System.out.println("Média das avaliações: " + movie.getAverageRatings());
     }
 }
