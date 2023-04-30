@@ -1,3 +1,4 @@
+import br.com.alura.screenmatch.calculation.RecommendationFilter;
 import br.com.alura.screenmatch.calculation.TimeCalculator;
 import br.com.alura.screenmatch.models.Movie;
 import br.com.alura.screenmatch.models.Serie;
@@ -36,5 +37,8 @@ public class Main {
         timeCalculator.add(lost);
 
         System.out.println("Tempo para maratonar durante as férias: " + timeCalculator.getTotalTime());
+
+        RecommendationFilter filter = new RecommendationFilter();
+        filter.filter(movie);
     }
 }

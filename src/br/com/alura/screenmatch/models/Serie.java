@@ -1,10 +1,13 @@
 package br.com.alura.screenmatch.models;
 
-public class Serie extends Title{
+import br.com.alura.screenmatch.calculation.Classifiable;
+
+public class Serie extends Title implements Classifiable {
     private int seasons;
     private int episodesBySeason;
     private boolean finished;
     private int minutesPerEpisode;
+    private int totalViews;
 
 
     public int getSeasons() {
@@ -31,6 +34,14 @@ public class Serie extends Title{
         this.finished = finished;
     }
 
+    public void setTotalViews(int totalViews) {
+        this.totalViews = totalViews;
+    }
+
+    public int getTotalViews() {
+        return totalViews;
+    }
+
     public int getMinutesPerEpisode() {
         return minutesPerEpisode;
     }
@@ -42,5 +53,14 @@ public class Serie extends Title{
     @Override
     public int getDurationInMinutes() {
         return this.seasons * this.episodesBySeason * this.minutesPerEpisode;
+    }
+
+    @Override
+    public int getClassification() {
+        if (this.totalViews > 100) {
+            return 4;
+        } else  {
+          return 2;
+        }
     }
 }
