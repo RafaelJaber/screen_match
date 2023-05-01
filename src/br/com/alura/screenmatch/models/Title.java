@@ -1,17 +1,28 @@
 package br.com.alura.screenmatch.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Title implements Comparable<Title>{
+    @SerializedName("Title")
     private final String name;
+    @SerializedName("Year")
     private final int releaseDate;
     private boolean includedInPlan = false;
     private double sumOfRatings;
     private int totalRatings = 0;
+   // @SerializedName("Runtime")
     private int durationInMinutes;
 
 
     public Title (String name, int releaseDate) {
         this.name = name;
         this.releaseDate = releaseDate;
+    }
+
+    public Title(TitleOmdb titleOmdb) {
+        this.name = titleOmdb.title();
+        this.releaseDate = Integer.valueOf(titleOmdb.year());
+        this.durationInMinutes = Integer.valueOf(titleOmdb.runtime().split(" ")[0]);
     }
 
     public void setIncludedInPlan(boolean includedInPlan) {

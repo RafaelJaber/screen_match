@@ -1,5 +1,11 @@
 package br.com.alura.screenmatch.main;
 
+import br.com.alura.screenmatch.models.Title;
+import br.com.alura.screenmatch.models.TitleOmdb;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -23,6 +29,17 @@ public class MainSearch {
 
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
+
+        String json = response.body();
+        System.out.println(json);
+
+        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+        //Title myTitle = gson.fromJson(json, Title.class);
+        TitleOmdb myTitleOmdb = gson.fromJson(json, TitleOmdb.class);
+        System.out.println(myTitleOmdb);
+
+        System.out.println("Imprimindo o titulo pela API usando a conversão");
+        Title myTitle = new Title(myTitleOmdb);
+        System.out.println(myTitle.getName() + " (" + myTitle.getReleaseDate() + ") - " + myTitle.getDurationInMinutes() + " minutos");
     }
 }
