@@ -1,19 +1,16 @@
 package br.com.alura.screenmatch.models;
 
 public class Title {
-    private String name;
-    private int releaseDate;
+    private final String name;
+    private final int releaseDate;
     private boolean includedInPlan = false;
     private double sumOfRatings;
     private int totalRatings = 0;
     private int durationInMinutes;
 
 
-    public void setName(String n) {
-        this.name = n;
-    }
-
-    public void setReleaseDate(int releaseDate) {
+    public Title (String name, int releaseDate) {
+        this.name = name;
         this.releaseDate = releaseDate;
     }
 

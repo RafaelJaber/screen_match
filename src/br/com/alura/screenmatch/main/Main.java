@@ -1,13 +1,15 @@
+package br.com.alura.screenmatch.main;
+
 import br.com.alura.screenmatch.calculation.RecommendationFilter;
 import br.com.alura.screenmatch.calculation.TimeCalculator;
 import br.com.alura.screenmatch.models.Movie;
 import br.com.alura.screenmatch.models.Serie;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Movie movie = new Movie();
-        movie.setName("O Protetor");
-        movie.setReleaseDate(2014);
+        Movie movie = new Movie("O Protetor", 2014);
         movie.setDurationInMinutes(140);
 
         movie.displayTechnicalSheet();
@@ -20,9 +22,7 @@ public class Main {
         System.out.println("Soma das avaliações: " + movie.getSumOfRatings());
 
 
-        Serie lost = new Serie();
-        lost.setName("Lost");
-        lost.setReleaseDate(2007);
+        Serie lost = new Serie("Lost", 2007);
         lost.setMinutesPerEpisode(40);
         lost.setSeasons(5);
         lost.setEpisodesBySeason(20);
@@ -40,5 +40,17 @@ public class Main {
 
         RecommendationFilter filter = new RecommendationFilter();
         filter.filter(movie);
+
+        Movie movie2 = new Movie("DogVille", 2022);
+        movie2.setDurationInMinutes(200);
+        movie2.evaluate(10);
+
+        ArrayList<Movie> movieList = new ArrayList<Movie>();
+        movieList.add(movie);
+        movieList.add(movie2);
+
+        System.out.println("Tamanho da lista de filmes: " + movieList.size());
+
+        System.out.println(movie.toString());
     }
 }

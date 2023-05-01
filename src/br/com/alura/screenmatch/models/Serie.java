@@ -9,6 +9,9 @@ public class Serie extends Title implements Classifiable {
     private int minutesPerEpisode;
     private int totalViews;
 
+    public Serie(String name, int releaseDate) {
+        super(name, releaseDate);
+    }
 
     public int getSeasons() {
         return seasons;
@@ -62,5 +65,10 @@ public class Serie extends Title implements Classifiable {
         } else  {
           return 2;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Série: " + this.getName() + " (" + this.getReleaseDate() + ")";
     }
 }
