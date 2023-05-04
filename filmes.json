@@ -1,0 +1,26 @@
+[
+  {
+    "Name": "Matrix",
+    "ReleaseDate": 1993,
+    "IncludedInPlan": false,
+    "SumOfRatings": 0.0,
+    "TotalRatings": 0,
+    "DurationInMinutes": 60
+  },
+  {
+    "Name": "Top Gun",
+    "ReleaseDate": 1986,
+    "IncludedInPlan": false,
+    "SumOfRatings": 0.0,
+    "TotalRatings": 0,
+    "DurationInMinutes": 109
+  },
+  {
+    "Name": "The Avengers",
+    "ReleaseDate": 2012,
+    "IncludedInPlan": false,
+    "SumOfRatings": 0.0,
+    "TotalRatings": 0,
+    "DurationInMinutes": 143
+  }
+]

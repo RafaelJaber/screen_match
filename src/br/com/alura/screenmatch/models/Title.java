@@ -78,4 +78,9 @@ public class Title implements Comparable<Title>{
     public int compareTo(Title t) {
         return this.getName().compareTo(t.getName());
     }
+
+    @Override
+    public String toString() {
+        return "Título: " + this.getName() + " (" + this.getReleaseDate() + ")";
+    }
 }
